@@ -1,0 +1,20 @@
+body{
+    background-image: url('https://images2.alphacoders.com/492/492191.jpg');
+    background-size: cover;
+ 
+}
+form{
+    color: white;
+    opacity: 2px;
+    text-align: center;
+    margin: 0 auto;
+    width: 500px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+input
+{
+    width: 300px;
+    border-radius: 5%;
+}

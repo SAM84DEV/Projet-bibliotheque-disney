@@ -1,0 +1,18 @@
+body{
+    background-image: url('https://images5.alphacoders.com/104/1040092.jpg');
+    background-size: cover;
+}
+.button
+{
+    display: flex;
+    justify-content: center;
+}
+.form-select {
+    width: 50em;
+    text-align: center;
+    justify-content: center;
+}
+.container {
+    display: flex;
+    justify-content: center;
+  }
