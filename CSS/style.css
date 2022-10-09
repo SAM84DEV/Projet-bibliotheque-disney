@@ -3,6 +3,10 @@ body{
     background-size: cover;
  
 }
+.navbar-brand>img {
+    height: 35px;
+    width: 60px;
+}
 form{
     color: white;
     opacity: 2px;

@@ -2,6 +2,10 @@ body{
     background-image: url('https://images5.alphacoders.com/104/1040092.jpg');
     background-size: cover;
 }
+.navbar-brand>img {
+    height: 35px;
+    width: 60px;
+}
 .button
 {
     display: flex;

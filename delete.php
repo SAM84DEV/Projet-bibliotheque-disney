@@ -35,7 +35,7 @@
 
         <div class="container">
             <select class="form-select" aria-label="Default select example">
-            <option selected>consult the list of books</option>
+            <option selected>Consulter la liste des livres</option>
             <?php foreach($books as $book) { ?>
             <option value="<?php echo $book['idbooks'] ?>"><?php echo $book['title'] ?></option>
             <?php } ?>
@@ -44,7 +44,7 @@
         </br></br>
 
         <div class="button">
-            <a href="delete.php?deleteid=<?php echo $book['idbooks']; ?>"  class="btn btn-primary">Delete definitely</a>
+            <a href="delete.php?deleteid=<?php echo $book['idbooks']; ?>"  class="btn btn-primary">Supprimer votre livre</a>
         </div>
     </body>
 </html>

@@ -1,18 +1,26 @@
 <?php
 try {
     $pdo = new PDO('mysql:host=localhost;dbname=bibliotheques', 'root', '');
-    $id = $_GET['id'];
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+    $bdd = "SELECT * FROM books WHERE idbooks = '$id'";
+    $statement = $pdo->prepare($bdd);
+    $statement->execute();
+    $book = $statement->fetch();
+}
+?>
+<?php
+    $pdo = new PDO('mysql:host=localhost;dbname=bibliotheques', 'root', '');
+if (isset($_POST["submit"])) {
+    $title=  $_POST['title'];
+    $description = $_POST['description'];
+    $image = $_POST['image'];
 
-    if (isset($_POST["submit"])) {
-        $title=  $_POST['title'];
-        $description = $_POST['description'];
-        $image = $_POST['image'];
-        
-        $bdd = 'UPDATE books SET title = :title, description = :description, image = :image WHERE idbooks = :id';
-        $statement = $pdo->prepare($bdd);
-        $statement->execute([':title' => $title, ':description' => $description, ':image' => $image, ':id' =>$id]);
-        header('Location: index.php');
-    }
+    $bdd = 'UPDATE books SET title = :title, description = :description, image = :image WHERE idbooks = :id';
+    $statement = $pdo->prepare($bdd);
+    $statement->execute([':title' => $title, ':description' => $description, ':image' => $image, ':id' =>$id]);
+    header('Location: index.php');
+}
 } 
 catch (PDOException $e) 
 {
@@ -36,30 +44,27 @@ catch (PDOException $e)
         include 'NAV/nav.php';
         ?>             
         </br>
-        
+
         <form action='update.php?id=<?php echo $id ?>' method='post'>
             <div class="form-group">
-            <div>
-                <label for="idbooks">Livre numéro :</label>
-                <input type="text" id="idbooks" name="idbooks" class="form-control" value="<?php echo $books['idbooks']; ?>">
+                <div>
+                    <label for="idbooks">Mon livre n° :</label>
+                    <input type="text" placeholder="<?php echo $id ?>" id="idbooks" name="idbooks" class="form-control" value="<?php echo $books['idbooks']; ?>">
                 </div></br>
                 <div>
-                <label for="title">Titre :</label>
-                <input type="text" id="title" name="title" class="form-control" value="<?php echo $books['title']; ?>">
+                    <label for="title">Titre :</label>
+                    <input type="text" placeholder="<?php echo $book['title'] ?>" id="title" name="title" class="form-control" value="<?php echo $books['title']; ?>">
                 </div></br>
                 <div>
                     <label for="description">Description :</label>
-                    <input type="text" id="description" name="description" class="form-control"  value="<?php echo $books['description']; ?>">
+                    <input type="text" placeholder="<?php echo $book['description'] ?>" id="description" name="description" class="form-control"  value="<?php echo $books['description']; ?>">
                 </div></br>
                 <div>
-                    <label for="image">image :</label>
-                    <input type="text" id="image" name="image" class="form-control" value="<?php echo $books['image']; ?>">
+                    <label for="image">Lien de l'image :</label>
+                    <input type="text" placeholder="<?php echo $book['image'] ?>" id="image" name="image" class="form-control" value="<?php echo $books['image']; ?>">
                 </div></br>
             </div>
-
-            <div class="button">
-                <input type="submit"  class="btn btn-primary" value="Submit" name="submit">
-            </div>
+                <input type="submit"  value="Modifier votre site" name="submit">
          </form>
     </body>
 </html>

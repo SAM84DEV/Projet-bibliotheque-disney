@@ -6,6 +6,10 @@
 {
 	margin-left: 400px;
 }
+.navbar-brand>img {
+    height: 35px;
+    width: 60px;
+}
 body
 {
 	background-image: url('https://images4.alphacoders.com/194/194226.jpg');

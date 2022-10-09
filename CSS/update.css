@@ -3,8 +3,14 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
+input
+{
+    color:white;
+    background-color: palevioletred;
+    border-radius: 5px;
+}
 form{
-    color: white;
+    color:rgb(0, 0, 30);
     opacity: 2px;
     text-align: center;
     margin: 0 auto;
@@ -12,4 +18,11 @@ form{
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 1em;
+    font-size: large;
+    font-weight: bold;
 }
+.navbar-brand>img {
+    height: 35px;
+    width: 60px;
+}
+
